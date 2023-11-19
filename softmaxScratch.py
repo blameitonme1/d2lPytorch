@@ -67,6 +67,7 @@ class Animator:  #@save
             self.axes[0], xlabel, ylabel, xlim, ylim, xscale, yscale, legend)
         self.X, self.Y, self.fmts = None, None, fmts
 
+
     def add(self, x, y):
         # 向图表中添加多个数据点
         if not hasattr(y, "__len__"):

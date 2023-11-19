@@ -1,6 +1,7 @@
 import torch
 from torch import nn
 from d2l import torch as d2l
+from softmaxScratch import train_ch3
 
 batch_size = 256
 train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size=batch_size)
@@ -18,4 +19,5 @@ loss = nn.CrossEntropyLoss()
 trainer = torch.optim.SGD(net.parameters(), lr=0.1)
 num_epochs = 10
 # 开始训练
-d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
+train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
+d2l.plt.show()
