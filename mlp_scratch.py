@@ -2,6 +2,7 @@ import torch
 from torch import nn
 from d2l import torch as d2l
 from softmaxScratch import train_ch3
+
 # 导包，从零开始实现mlp (multilayer perceptron), 仍然使用fashionMinist数据集
 batch_size = 256
 train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)
