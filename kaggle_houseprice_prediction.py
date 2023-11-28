@@ -132,3 +132,4 @@ def k_fold(k, X_train, y_train, num_epochs, learning_rate, weight_decay,
         print(f'折{i + 1}，训练log rmse{float(train_ls[-1]):f}, '
               f'验证log rmse{float(valid_ls[-1]):f}')
     return train_l_sum / k, valid_l_sum / k
+
