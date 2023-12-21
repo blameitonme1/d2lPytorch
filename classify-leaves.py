@@ -79,8 +79,8 @@ cat_to_index = {leaf_name : index for index, leaf_name in enumerate(categories)}
 train_df, val_df = train_test_split(df1, test_size=0.2, random_state=42)
 train_dataset = LeaveDataset(train_df, transform=train_augs)
 test_dataset = LeaveDataset(val_df, transform=test_augs)
-train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 loss = nn.CrossEntropyLoss()
 trainer = torch.optim.Adam(net.parameters(), lr=0.001)
 # finetuning a liitle bit
