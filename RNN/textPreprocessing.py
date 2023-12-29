@@ -44,7 +44,7 @@ class Vocabulary:
         self.idx_to_token = ['<unk>'] + reserved_tokens
         self.token_to_idx = {
             token : idx 
-            for idx, token in enumerate(self.idx_to_token)
+            for idx, token in enumerate(self.idx_to_token)d
         }
         for token, freq in self._token_freqs:
             if freq < min_freq:
