@@ -45,4 +45,21 @@ def seq_data_iter_sequential(corpus, batch_size, num_steps):
         X = Xs[:, i : i + num_steps]
         Y = Ys[:, i : i + num_steps]
         yield X, Y
+class SeqDataLoader:  #@save
+    """load iterator"""
+    def __init__(self, batch_size, num_steps, use_random_iter, max_tokens):
+        if use_random_iter:
+            self.data_iter_fn = seq_data_iter_random
+        else:
+            self.data_iter_fn = seq_data_iter_sequential
+        self.corpus, self.vocab = load_corpus(max_tokens)
+        self.batch_size, self.num_steps = batch_size, num_steps
 
+    def __iter__(self):
+        return self.data_iter_fn(self.corpus, self.batch_size, self.num_steps)
+def load_data_time_machine(batch_size, num_steps,  #@save
+                           use_random_iter=False, max_tokens=10000):
+    """return iterator and vocabulary"""
+    data_iter = SeqDataLoader(
+        batch_size, num_steps, use_random_iter, max_tokens)
+    return data_iter, data_iter.vocab
