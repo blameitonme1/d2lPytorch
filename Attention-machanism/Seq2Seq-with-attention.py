@@ -13,6 +13,7 @@ class Seq2SeqAttentionDecoder(AttentionDecoder):
     """有注意力机制实现的Seq2Seq的decoder"""
     def __init__(self, vocab_size, embed_size, num_hiddens, num_layers, dropout=0, **kwargs):
         super().__init__()
+        # 注意这里的API, 和之前的不一样，只是用了一个参数num_hiddens，留意
         self.attention = d2l.AdditiveAttention(
             num_hiddens, dropout
         ) # 使用加性注意力，因为可以学习参数效果会更好
